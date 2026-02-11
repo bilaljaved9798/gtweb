@@ -2,7 +2,8 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "npm",
+    "analytics": "ddb9fbe0-ccd8-4a3c-b762-b1d1baae3dae"
   },
   "newProjectRoot": "projects",
   "projects": {
@@ -46,6 +47,12 @@
                   "maximumWarning": "4kB",
                   "maximumError": "8kB"
                 }
+              ],
+              "fileReplacements": [
+                {
+                   "replace": "src/app/environments/environments.ts",
+                   "with": "src/app/environments/environment.prod.ts"
+                 }
               ],
               "outputHashing": "all"
             },

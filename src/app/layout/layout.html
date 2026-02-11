@@ -1,0 +1,17 @@
+<header class="navbar">
+  <button class="menu-btn" (click)="toggleSidebar()">☰</button>
+  <span class="title">Angular SPA</span>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</header>
+
+<div class="container">
+  <aside class="sidebar" [class.closed]="!sidebarOpen">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/users">Users</a>
+    <a routerLink="/settings">Settings</a>
+  </aside>
+
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

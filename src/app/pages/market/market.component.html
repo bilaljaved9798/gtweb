@@ -1,0 +1,181 @@
+<div class="col-md-12 no-padding marketinfo">
+  <div
+    class="marketname"
+    [ngStyle]="{'background':backgrod, 'color': color}"
+  >
+    <span class="Maintime" [id]="'lblStartTime' + market?.MarketId">
+      {{ formatTime(market?.OrignalOpenDate) }}
+    </span>
+
+   <label
+  style="text-shadow:0.5px 0.2px #ff0000"
+  class="markettime"
+  [id]="'lbltimer' + market?.MarketId"
+>
+  {{ timerText }}
+</label>
+    <br />
+
+    <span class="namestyle">
+      <span
+        style="margin-top:3px !important;"
+        title="Rules"
+        class="rule active1"
+        (click)="showMarketRules(market?.MainSportsname ?? '', market?.MarketBookName ?? '', market?.Runners?.length ?? 0)"
+      >
+      </span>
+
+      <img
+        class="timrimg"
+        [src]="getMarketImages(market?.MainSportsname || '')"
+        *ngIf="getMarketImages(market?.MainSportsname || '')"
+        style="height:35px"
+      />
+
+      {{ market?.MarketBookName || '' }}
+      {{ model.eventName || '' }}
+    </span>
+  </div>
+</div>
+
+
+ <!-- RUNNER NAME -->
+<div
+  *ngFor="let runner of market?.Runners; let valueid = index"
+  [id]="'selection' + runner.SelectionId.replace(' ', '')"
+  class="col-md-12 pull-left col-sm-12 no-padding runnerswrapper"
+  style="background:linear-gradient(to top, #ffffff2b 92%, #00ff451f 53%)"
+>
+
+  <!-- RUNNER NAME -->
+  <div class="no-padding runnernamediv runnerswrapper">
+
+    <!-- CHECKBOX -->
+    <input
+      type="checkbox"
+      class="checkboxrunnername"
+      [id]="'chkselection' + runner.SelectionId.replace('.', '_')"
+      (change)="addRunnersForMultipleBets(runner.SelectionId)"
+    />
+
+    <!-- HORSE RACING -->
+    <ng-container *ngIf="market?.MainSportsname === 'Horse Racing'">
+
+      <!-- US MARKET -->
+      <ng-container *ngIf="market?.MarketBookName?.includes('(US)')">
+
+        <!-- CLOTH NUMBER -->
+        <span
+          *ngIf="runner.Clothnumber"
+          class="usracenumber"
+          [ngStyle]="{
+            'background':
+              runner.Clothnumber == '1' ? '#bb2025' :
+              runner.Clothnumber == '2' ? '#ffffff' :
+              runner.Clothnumber == '3' ? '#253b84' :
+              runner.Clothnumber == '4' ? '#cdb301' :
+              runner.Clothnumber == '5' ? '#1c5b1b' :
+              runner.Clothnumber == '6' ? 'black' :
+              '#999'
+          }"
+        >
+          {{ runner.Clothnumber }}
+        </span>
+
+        <!-- RUNNER INFO -->
+        <div class="runnerinfo">
+          <label class="runners runnersnameHorse">
+            {{ runner.RunnerName }}
+          </label>
+
+          <label class="tooltip jockeyname">
+            ({{ runner.StallDraw }}) {{ runner.JockeyName }}
+            <span class="tooltiptext">
+              Runner: {{ runner.RunnerName }} <br />
+              Jockey: {{ runner.JockeyName }}
+            </span>
+          </label>
+        </div>
+      </ng-container>
+    </ng-container>
+
+    <!-- PROFIT / LOSS -->
+    <label
+      [id]="'lblprofitandloss' + runner.SelectionId"
+      [ngClass]="runner.ProfitandLoss >= 0 ? 'runnersprofitlossgreen1' : 'runnersprofitlossred1'"
+    >
+      {{ runner.ProfitandLoss }}
+    </label>
+
+    <!-- TO BE PLACED -->
+    <label
+      *ngIf="market?.MarketBookName?.includes('To Be Placed')"
+      [id]="'lblloss' + runner.SelectionId"
+      [ngClass]="(runner?.Loss ?? 0) >= 0 ? 'jockeynameplGreen' : 'jockeynameplRed'"
+    >
+      {{ runner.Loss }}
+    </label>
+  </div>
+
+  <!-- LAST PRICE -->
+  <div class="runnerlastpricediv">
+    <label class="runnerslastprice">
+      {{ runner.LastPriceTraded }}
+    </label>
+    <label class="runnertotalmatch">
+      {{ runner.TotalMatched }}
+    </label>
+  </div>
+
+  <!-- BACK PRICES -->
+  <div class="runnerbackandlaydiv">
+
+    <div *ngFor="let back of runner.ExchangePrices.AvailableToBack | slice:0:3; let i = index"
+         class="backitem">
+      <label
+        class="labelup selectionprice"
+        (click)="showBetSlip(
+          runner.SelectionId,
+          'back',
+          back.Price,
+          2000,
+          market?.MarketId ?? '',
+          market?.MarketBookName ?? '',
+          back.Size,
+          i
+        )"
+      >
+        {{ back.Price }}
+      </label>
+
+      <label class="labeldown selectionsize">
+        {{ back.Size }}
+      </label>
+    </div>
+
+    <!-- LAY PRICES -->
+    <div *ngFor="let lay of runner.ExchangePrices.AvailableToLay | slice:0:3; let i = index"
+         class="layitem">
+      <label
+        class="labelup selectionprice"
+        (click)="showBetSlip(
+          runner.SelectionId,
+          'lay',
+          lay.Price,
+          2000,
+          market?.MarketId ?? '',
+          market?.MarketBookName ?? '',
+          lay.Size,
+          i
+        )"
+      >
+        {{ lay.Price }}
+      </label>
+
+      <label class="labeldown selectionsize">
+        {{ lay.Size }}
+      </label>
+    </div>
+  </div>
+
+</div>

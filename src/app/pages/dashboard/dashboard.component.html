@@ -1,0 +1,48 @@
+<div class="headingdivagent">
+  <span class="headingcaption"><strong>Sport Highlights</strong></span>
+</div>
+
+<ul class="inplaymatchheading" *ngIf="eventTypes.length > 0;">
+  <li *ngFor="let item of eventTypes">
+    <a class="inplaymatchheadinglink ipshead"
+       (click)="setActiveCategory(item)">
+      <img [src]="'/' + normalizeCategory(item).toLowerCase() + '.svg'" width="30" />
+      {{ item }} ({{ getCount(item) }})
+    </a>
+  </li>
+</ul>
+<div *ngFor="let item of eventTypes">
+  <div class="inplaydatabycategory"
+       [id]="'inplaydatafor' + normalizeCategory(item)">
+    <div class="inplaydatarow"
+         *ngFor="let match of allMarkets">
+      <i class="fa fa-share-alt" style="float:right"></i>
+
+      <div class="inplaymatchname">
+        <i class="fa fa-caret-right"
+           [style.color]="getCaretColor(match, item === 'Cricket')"></i>
+
+        <a [style.color]="getMatchStatusColor(match)"
+           (click)="openMarket(match.marketBookID,match.marketBookName,match.marketStartTime,item, match.eventName)">
+          {{ match.sheetName }} 
+        </a>
+        <div class="inplaytime">
+          {{ match.MarketStartTime }}
+        </div>
+      </div>
+
+      <ng-container *ngIf="item !== 'Horse Racing' && item !== 'Greyhound Racing'; else racing">
+        <div class="inplaymatchbackandlay">
+          <div class="inplayback">{{ match.Runner1Back }}<br>{{ match.Runner1BackSize }}</div>
+          <div class="inplaylay">{{ match.Runner1Lay }}<br>{{ match.Runner1LaySize }}</div>
+        </div>
+      </ng-container>
+
+      <ng-template #racing>
+        <div class="moleucule" (click)="openMarket(match.marketBookID,match.marketBookName,match.marketStartTime,item, match.eventName)">
+          {{ match.marketBookID.replace('1.2', '') }}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
