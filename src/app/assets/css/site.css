@@ -777,9 +777,6 @@ h9 {
     width: 140px;
     padding: 1rem;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 
@@ -2100,7 +2097,6 @@ a:hover {
     padding-left: 0px !important;
     padding-right: 0px !important;
     min-height: 0px;
-    display: flow-root;
 }
 
 #marketbook, #betslipcontent, #fancymarketbook, #Indianfancymarketbook1, #marketbookTWT, #KJfancymarketbook, #Figurefancymarketbook, #SFigfancymarketbook, #marketbooksoccer {
