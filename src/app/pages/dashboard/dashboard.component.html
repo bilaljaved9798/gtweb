@@ -6,7 +6,7 @@
   <li *ngFor="let item of eventTypes">
     <a class="inplaymatchheadinglink ipshead"
        (click)="setActiveCategory(item)">
-      <img [src]="'/' + normalizeCategory(item).toLowerCase() + '.svg'" width="30" />
+      <img [src]="'/' + normalizeCategory(item) + '.svg'" width="30" />
       {{ item }} ({{ getCount(item) }})
     </a>
   </li>
@@ -23,7 +23,7 @@
            [style.color]="getCaretColor(match, item === 'Cricket')"></i>
 
         <a [style.color]="getMatchStatusColor(match)"
-           (click)="openMarket(match.marketBookID,match.marketBookName,match.marketStartTime,item, match.eventName)">
+           (click)="openMarket(match.marketId,match.marketBookName,match.marketStartTime,item, match.eventName)">
           {{ match.sheetName }} 
         </a>
         <div class="inplaytime">

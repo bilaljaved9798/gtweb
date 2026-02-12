@@ -929,7 +929,8 @@ cta-8:hover {
     border: none;
     outline: none;
     color: #fff;
-    background: -webkit-linear-gradient(bottom,#35c483,#000000) !important;
+    /* background: -webkit-linear-gradient(bottom,#35c483,#000000) !important; */
+    background: #263238;
     cursor: pointer;
     position: relative;
     z-index: 0;
@@ -975,7 +976,8 @@ cta-8:hover {
         height: 100%;
         text-shadow: 2px 2px #5f3f3f;
         /*box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px, rgba(0, 0, 0, 0.6) 0px 6px 20px 0px ;*/
-        background: -webkit-linear-gradient(bottom,#35c483,#000000) !important;
+        /* background: -webkit-linear-gradient(bottom,#35c483,#000000) !important; */
+        background: #263238;
         left: 0;
         top: 0;
         border-radius: 10px;
@@ -1071,7 +1073,8 @@ cta-8:hover {
 }
 
 .reletedeventbackground {
-    background: linear-gradient(to top, #00ff8a, #000000) !important;
+    /* background: linear-gradient(to top, #00ff8a, #000000) !important; */
+    background: #263238;
 }
 
 .love12 {
@@ -1666,7 +1669,6 @@ textarea {
         font-weight: 600;
         /* border: 1px red solid; */
         animation: marquee 10s linear infinite;
-    }
     }
 
 
@@ -2895,7 +2897,8 @@ label {
 .marketname {
     float: left;
     color: white;
-    background: linear-gradient(to top, #00ff8a, #000000) !important;
+    /* background: linear-gradient(to top, #00ff8a, #000000) !important; */
+    background: #263238;
     width: 100% !important;
     text-align: center;
     border:1px solid black;
@@ -3396,11 +3399,8 @@ label {
     background-position-x: 33px;
     background-size: 60% 100%;
     background-repeat: no-repeat;
-    background-image: URL(" ~/Content/Images/Suspend.png");
+    background-image: url("/assets/images/Suspend.png");
     background-color: rgba(255, 255, 255, 0.4);
-    /*border-top: 2px dotted red;
-	border-left: 2px dotted red;
-	border-right: 2px dotted red;*/
 }
 
 .averagerates {
@@ -3776,7 +3776,8 @@ label {
 .btncancelUnmatchedBets {
     border-radius: 4px;
     float: right;
-    background: -webkit-linear-gradient(bottom, #ff031c, #000000) !important;
+    /* background: -webkit-linear-gradient(bottom, #ff031c, #000000) !important; */
+    background: #263238;
     /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, .2), 0 6px 20px 0 rgba(0, 0, 0, .6); */
     border: none;
     color: #FFFFFF;
@@ -3829,7 +3830,8 @@ label {
     float: left;
     width: 100%;
     height: 60px;
-    background: linear-gradient(to top, #00ff8a, #000000) !important;
+    /* background: linear-gradient(to top, #00ff8a, #000000) !important; */
+    background: #263238;
 }
 
 #position {
@@ -4025,12 +4027,14 @@ a {
     padding-left: 12px;
     text-align: right;
     border-bottom: 3px solid #00ff9a;
+
 }
 
 .headingdivagent {
     position: relative;
     min-height: 35px;
-    background: linear-gradient(to top, #00ff8a, #000000) !important;-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+    /* background: linear-gradient(to top, #00ff8a, #000000) !important;-webkit-box-shadow: 0 0 4px rgba(0, 0, 0, .3); */
+    background: #263238;
     -moz-box-shadow: 0 0 4px rgba(0, 0, 0, .3);
     box-shadow: 0 0 4px rgba(0, 0, 0, .3);
     color: White;
@@ -5257,7 +5261,8 @@ a {
         border: none;
         outline: none;
         color: #fff;
-        background: -webkit-linear-gradient(bottom,#35c483,#000000) !important;
+        /* background: -webkit-linear-gradient(bottom,#35c483,#000000) !important; */
+        background: #263238;
         text-shadow: 0.35px 0.35px #ffffff !important;
         /*box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px, rgba(0, 0, 0, 0.6) 0px 6px 20px 0px;*/
         cursor: pointer;
@@ -5301,7 +5306,8 @@ a {
             position: absolute;
             width: 100%;
             height: 100%;
-            background: -webkit-linear-gradient(bottom,#35c483,#000000) !important;
+            /* background: -webkit-linear-gradient(bottom,#35c483,#000000) !important; */
+            background: #263238;
             text-shadow: 0.35px 0.35px #ffffff !important;
             /*box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 16px 0px, rgba(0, 0, 0, 0.6) 0px 6px 20px 0px;*/
             left: 0;
